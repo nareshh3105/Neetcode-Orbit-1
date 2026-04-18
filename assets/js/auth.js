@@ -72,22 +72,63 @@ export function requireUser() {
   })();
 }
 
+let authMode = "signin";
+
 function setupAuthPage() {
   const form = document.getElementById("emailAuthForm");
   const msg = document.getElementById("authMessage");
   const googleBtn = document.getElementById("googleSignInBtn");
+  
+  const submitBtn = document.getElementById("authSubmitBtn");
+  const toggleModeBtn = document.getElementById("toggleAuthModeBtn");
+  const togglePwdBtn = document.getElementById("togglePasswordBtn");
+  const pwdInput = document.getElementById("passwordInput");
+  const authSubtitle = document.getElementById("authSubtitle");
+
   if (!form || !msg || !googleBtn || !auth) return;
+
+  if (togglePwdBtn && pwdInput) {
+    togglePwdBtn.addEventListener("click", () => {
+      const isPassword = pwdInput.type === "password";
+      pwdInput.type = isPassword ? "text" : "password";
+      togglePwdBtn.textContent = isPassword ? "Hide" : "Show";
+    });
+  }
+
+  if (toggleModeBtn && submitBtn && pwdInput && authSubtitle) {
+    toggleModeBtn.addEventListener("click", () => {
+      if (authMode === "signin") {
+        authMode = "signup";
+        submitBtn.textContent = "Sign Up";
+        toggleModeBtn.textContent = "Already have an account? Sign In";
+        authSubtitle.textContent = "Create an account to start your trajectory.";
+        pwdInput.setAttribute("autocomplete", "new-password");
+      } else {
+        authMode = "signin";
+        submitBtn.textContent = "Sign In";
+        toggleModeBtn.textContent = "Don't have an account? Sign Up";
+        authSubtitle.textContent = "Sign in to continue your coding trajectory.";
+        pwdInput.setAttribute("autocomplete", "current-password");
+      }
+    });
+  }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const email = document.getElementById("emailInput").value.trim();
-    const password = document.getElementById("passwordInput").value.trim();
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      msg.textContent = "Signed in. Redirecting...";
-      toHomePage();
-      return;
-    } catch (_error) {
+    const password = pwdInput.value.trim();
+    
+    msg.textContent = authMode === "signin" ? "Signing in..." : "Creating account...";
+
+    if (authMode === "signin") {
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        msg.textContent = "Signed in. Redirecting...";
+        toHomePage();
+      } catch (error) {
+        msg.textContent = error.message;
+      }
+    } else {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         msg.textContent = "Account created. Redirecting...";

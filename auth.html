@@ -19,22 +19,28 @@
       <section class="auth-card glass-panel">
         <p class="eyebrow">Mission Access</p>
         <h1>NeetCode Orbit</h1>
-        <p class="hero-subtext">Sign in to continue your coding trajectory.</p>
+        <p id="authSubtitle" class="hero-subtext">Sign in to continue your coding trajectory.</p>
         <form id="emailAuthForm" class="stack-md">
-          <input id="emailInput" type="email" placeholder="Email" required />
-          <input
-            id="passwordInput"
-            type="password"
-            placeholder="Password"
-            minlength="6"
-            required
-          />
-          <div class="hero-actions">
-            <button type="submit" class="primary-btn">Sign In / Sign Up</button>
-            <button id="googleSignInBtn" type="button" class="secondary-btn">
+          <input id="emailInput" type="email" placeholder="Email" autocomplete="username" required />
+          <div style="position: relative; width: 100%;">
+            <input
+              id="passwordInput"
+              type="password"
+              placeholder="Password"
+              minlength="6"
+              autocomplete="current-password"
+              style="width: 100%"
+              required
+            />
+            <button type="button" id="togglePasswordBtn" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--glow-cyan); cursor: pointer; font-size: 0.85rem; font-weight: 600;">Show</button>
+          </div>
+          <div class="hero-actions" style="margin-top: 0.2rem;">
+            <button type="submit" id="authSubmitBtn" class="primary-btn" style="flex: 1;">Sign In</button>
+            <button id="googleSignInBtn" type="button" class="secondary-btn" style="flex: 1;">
               Continue with Google
             </button>
           </div>
+          <p id="toggleAuthModeBtn" style="text-align: center; cursor: pointer; color: var(--glow-primary); font-size: 0.9rem; margin-top: 0.5rem; transition: color 0.2s ease;">Don't have an account? Sign Up</p>
         </form>
         <p id="authMessage" class="meta-text"></p>
       </section>

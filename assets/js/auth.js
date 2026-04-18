@@ -52,7 +52,7 @@ function toAuthPage() {
 }
 
 function toHomePage() {
-  if (page === "auth") window.location.href = "./index.html";
+  if (page === "auth") window.location.href = "./today.html";
 }
 
 export function requireUser() {
@@ -173,6 +173,9 @@ if (page === "auth") {
   }
   setupAuthPage();
 } else if (page === "home") {
+  getAuthUser().then((user) => {
+    if (user) window.location.href = "./today.html";
+  });
   setupLogout();
 } else if (page) {
   requireUser();

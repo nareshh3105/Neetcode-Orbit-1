@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeetCode Orbit | Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body data-page="calendar">
+    <div class="space-bg"></div>
+    <div class="starfield"></div>
+    <header class="navbar-wrap">
+      <nav class="navbar glass-panel">
+        <a class="logo" href="./index.html">NeetCode Orbit</a>
+        <div class="nav-links">
+          <a href="./today.html">Today</a>
+          <a href="./calendar.html">Calendar</a>
+          <a href="./progress.html">Progress</a>
+          <a href="./profile.html">Profile</a>
+          <button id="logoutBtn" class="ghost-btn">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="page-shell">
+      <section class="section-head calendar-top">
+        <div>
+          <p class="eyebrow">Mission Planner</p>
+          <h1 id="monthLabel"></h1>
+        </div>
+        <div class="hero-actions">
+          <button id="prevMonthBtn" class="secondary-btn">Previous</button>
+          <button id="nextMonthBtn" class="secondary-btn">Next</button>
+        </div>
+      </section>
+      <section class="glass-panel calendar-shell">
+        <div class="calendar-weekdays"></div>
+        <div id="calendarGrid" class="calendar-grid"></div>
+      </section>
+    </main>
+
+    <dialog id="scheduleModal" class="schedule-modal glass-panel">
+      <form id="scheduleForm" method="dialog" class="stack-md">
+        <h2 id="modalDateTitle"></h2>
+        <div class="stack-sm">
+          <label>Question 1</label>
+          <input name="q1Title" placeholder="Title" required />
+          <input name="q1Link" placeholder="Link" />
+        </div>
+        <div class="stack-sm">
+          <label>Question 2</label>
+          <input name="q2Title" placeholder="Title" required />
+          <input name="q2Link" placeholder="Link" />
+        </div>
+        <div class="stack-sm">
+          <label>Question 3</label>
+          <input name="q3Title" placeholder="Title" required />
+          <input name="q3Link" placeholder="Link" />
+        </div>
+        <div class="hero-actions">
+          <button type="submit" class="primary-btn">Save Mission Day</button>
+          <button type="button" id="closeModalBtn" class="secondary-btn">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="./assets/js/ui.js"></script>
+    <script type="module" src="./assets/js/auth.js"></script>
+    <script type="module" src="./assets/js/calendar.js"></script>
+  </body>
+</html>

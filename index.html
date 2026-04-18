@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeetCode Orbit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body data-page="home">
+    <div class="space-bg"></div>
+    <div class="starfield"></div>
+    <header class="navbar-wrap">
+      <nav class="navbar glass-panel">
+        <a class="logo" href="./index.html">NeetCode Orbit</a>
+        <div class="nav-links">
+          <a href="./today.html">Today</a>
+          <a href="./calendar.html">Calendar</a>
+          <a href="./progress.html">Progress</a>
+          <a href="./profile.html">Profile</a>
+          <button id="logoutBtn" class="ghost-btn">Logout</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero glass-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">Mission Control</p>
+          <h1>Orbit Your NeetCode 150 Journey</h1>
+          <p class="hero-subtext">
+            Solve 3 structured problems daily. Track streaks. Customize your
+            roadmap. Stay consistent.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="./today.html">Start Today's Mission</a>
+            <a class="secondary-btn" href="./calendar.html">Open Calendar</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="./assets/svg/satellite-orbit.svg" alt="Orbiting satellite" />
+        </div>
+      </section>
+
+      <section class="feature-grid">
+        <a class="feature-card glass-panel" href="./today.html">
+          <h2>Today's Questions</h2>
+          <p>Launch your daily 3-problem sequence with instant solve tracking.</p>
+        </a>
+        <a class="feature-card glass-panel" href="./calendar.html">
+          <h2>Calendar Planner</h2>
+          <p>Plan custom daily missions and tune your prep around your schedule.</p>
+        </a>
+        <a class="feature-card glass-panel" href="./progress.html">
+          <h2>Progress Dashboard</h2>
+          <p>Monitor solved volume, streak momentum, and consistency heatmaps.</p>
+        </a>
+      </section>
+    </main>
+
+    <script type="module" src="./assets/js/ui.js"></script>
+    <script type="module" src="./assets/js/auth.js"></script>
+  </body>
+</html>

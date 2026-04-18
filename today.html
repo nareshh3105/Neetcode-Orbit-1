@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeetCode Orbit | Today</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body data-page="today">
+    <div class="space-bg"></div>
+    <div class="starfield"></div>
+    <header class="navbar-wrap">
+      <nav class="navbar glass-panel">
+        <a class="logo" href="./index.html">NeetCode Orbit</a>
+        <div class="nav-links">
+          <a href="./today.html">Today</a>
+          <a href="./calendar.html">Calendar</a>
+          <a href="./progress.html">Progress</a>
+          <a href="./profile.html">Profile</a>
+          <button id="logoutBtn" class="ghost-btn">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="page-shell">
+      <section class="section-head">
+        <p class="eyebrow">Today's Mission</p>
+        <h1>Three Problems. One Orbit.</h1>
+      </section>
+      <section id="todayQuestions" class="question-grid"></section>
+    </main>
+    <script type="module" src="./assets/js/ui.js"></script>
+    <script type="module" src="./assets/js/auth.js"></script>
+    <script type="module" src="./assets/js/today.js"></script>
+  </body>
+</html>

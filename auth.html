@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeetCode Orbit | Authentication</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body data-page="auth">
+    <div class="space-bg"></div>
+    <div class="starfield"></div>
+    <main class="auth-shell">
+      <section class="auth-card glass-panel">
+        <p class="eyebrow">Mission Access</p>
+        <h1>NeetCode Orbit</h1>
+        <p class="hero-subtext">Sign in to continue your coding trajectory.</p>
+        <form id="emailAuthForm" class="stack-md">
+          <input id="emailInput" type="email" placeholder="Email" required />
+          <input
+            id="passwordInput"
+            type="password"
+            placeholder="Password"
+            minlength="6"
+            required
+          />
+          <div class="hero-actions">
+            <button type="submit" class="primary-btn">Sign In / Sign Up</button>
+            <button id="googleSignInBtn" type="button" class="secondary-btn">
+              Continue with Google
+            </button>
+          </div>
+        </form>
+        <p id="authMessage" class="meta-text"></p>
+      </section>
+    </main>
+
+    <script type="module" src="./assets/js/auth.js"></script>
+  </body>
+</html>

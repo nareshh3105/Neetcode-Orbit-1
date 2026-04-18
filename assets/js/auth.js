@@ -85,11 +85,13 @@ function setupAuthPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       msg.textContent = "Signed in. Redirecting...";
+      toHomePage();
       return;
     } catch (_error) {
       try {
         await createUserWithEmailAndPassword(auth, email, password);
         msg.textContent = "Account created. Redirecting...";
+        toHomePage();
       } catch (error) {
         msg.textContent = error.message;
       }
@@ -100,6 +102,7 @@ function setupAuthPage() {
     try {
       await signInWithPopup(auth, googleProvider);
       msg.textContent = "Google sign-in successful. Redirecting...";
+      toHomePage();
     } catch (error) {
       msg.textContent = error.message;
     }
@@ -128,6 +131,8 @@ if (page === "auth") {
     });
   }
   setupAuthPage();
+} else if (page === "home") {
+  setupLogout();
 } else if (page) {
   requireUser();
   setupLogout();
